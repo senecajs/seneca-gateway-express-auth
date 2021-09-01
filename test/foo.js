@@ -35,7 +35,8 @@ let seneca = Seneca({legacy:false})
   app
     .use(CookieParser())
     .use(Express.json())
-    .use(seneca.export('gateway-express/handler'))
+    .use('/seneca',
+         seneca.export('gateway-express/handler'))
     .listen(8080)
 
   console.log(seneca.id)

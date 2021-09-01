@@ -15,6 +15,17 @@ function gateway_express_auth(this: any, options: any) {
     }
   })
 
+  seneca.act('sys:gateway,add:hook,hook:action', {
+    action: async function(this: any, _msg: any, ctx: any) {
+      let seneca: any = this
+      let principal = seneca?.fixedmeta?.custom?.principal
+      if (null == principal) {
+        ctx.res.sendStatus(401)
+        return { done$: true }
+      }
+    }
+  })
+
 
   return {
     name: 'gateway-express-auth'
