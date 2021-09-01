@@ -12,7 +12,7 @@ let seneca = Seneca({legacy:false})
     .use('user')
     .use('gateway')
     .use('gateway-express')
-    .use('..')
+    .use('..') // gateway-express-auth
     .message('foo:1', async function(m,meta) {
       return {x:m.x,p:meta.custom.principal}
     })
@@ -35,12 +35,15 @@ let seneca = Seneca({legacy:false})
   app
     .use(CookieParser())
     .use(Express.json())
-    .use('/seneca',
-         seneca.export('gateway-express/handler'))
+    .use('/seneca', seneca.export('gateway-express/handler'))
     .listen(8080)
 
   console.log(seneca.id)
 }
 
 run()
+
+// curl -H "Content-Type: application/json" -H "Cookie: seneca-auth=<TOKEN>" -d '{"foo":1,"x":2}' http://localhost:8080/seneca
+
+
 
