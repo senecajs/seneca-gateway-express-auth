@@ -1,19 +1,19 @@
 {
-  "name": "@seneca/gateway",
+  "name": "@seneca/gateway-express-auth",
   "version": "0.1.5",
-  "main": "dist/gateway.js",
+  "main": "dist/gateway-express-auth.js",
   "type": "commonjs",
-  "types": "dist/gateway.d.ts",
-  "description": "Handle incoming messages within other frameworks.",
-  "homepage": "https://github.com/senecajs/seneca-gateway",
+  "types": "dist/gateway-express-auth.d.ts",
+  "description": "Provide authentication for the @seneca/gateway-express plugin.",
+  "homepage": "https://github.com/senecajs/seneca-gateway-express-auth",
   "keywords": [
     "seneca",
-    "gateway"
+    "gateway-express-auth"
   ],
   "author": "Richard Rodger - richardrodger.com",
   "repository": {
     "type": "git",
-    "url": "git://github.com/senecajs/seneca-gateway.git"
+    "url": "git://github.com/senecajs/seneca-gateway-express-auth.git"
   },
   "scripts": {
     "test": "jest --coverage",
@@ -34,17 +34,29 @@
     "LICENSE"
   ],
   "devDependencies": {
+    "@seneca/gateway": "^0.1.5",
+    "@seneca/gateway-express": "^0.1.0",
+    "@seneca/user": "^5.8.0",
     "@types/jest": "^27.0.1",
+    "cookie-parser": "^1.4.5",
     "esbuild": "^0.12.24",
     "esbuild-jest": "^0.5.0",
+    "express": "^4.17.1",
     "jest": "^27.1.0",
     "seneca": ">=3",
+    "seneca-entity": "^14.0.0",
     "seneca-msg-test": "^3.2.0",
     "seneca-promisify": ">=2",
     "typescript": "^4.4.2"
   },
   "peerDependencies": {
     "seneca": ">=3",
-    "seneca-promisify": ">=2"
+    "seneca-promisify": ">=2",
+    "seneca-entity": ">=14",
+    "@seneca/gateway": ">=0",
+    "@seneca/gateway-express": ">=0",
+    "@seneca/user": ">=5",
+    "cookie-parser": ">=1",
+    "express": ">=4"
   }
 }
