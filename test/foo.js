@@ -26,6 +26,7 @@ let seneca = Seneca({legacy:false})
     email: 'alice@example.com'
   })
 
+  // Get <TOKEN>
   console.log(userRes, loginRes)
   
   await seneca.ready()
