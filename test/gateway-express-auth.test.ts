@@ -1,9 +1,9 @@
 
 import GatewayExpressAuth from '../src/gateway-express-auth'
+import { Maintain } from '@seneca/maintain'
 
 const Seneca = require('seneca')
 
-const { Maintain } = require('@seneca/maintain')
 
 describe('gateway-express-auth', () => {
 
@@ -17,6 +17,6 @@ describe('gateway-express-auth', () => {
     await seneca.ready()
   })
 
+  test('maintain', Maintain)
+  
 })
-
-Maintain()
